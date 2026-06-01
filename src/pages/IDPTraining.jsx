@@ -80,9 +80,9 @@ const previews = [
 
 const downloads = [
   {
-    title: "Leader Track Slide Deck",
-    description: "Full slide deck for the leader-facing IDP training track.",
-    href: "/downloads/idp/idp-leader-slide-deck.pdf",
+    title: "IDP Leadership Playbook",
+    description: "Standard sample for leader track.",
+    href: "/downloads/idp/idp-leader-playbook.pdf",
   },
   {
     title: "Manager Track Slide Deck",
