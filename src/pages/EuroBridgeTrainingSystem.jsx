@@ -1,3 +1,4 @@
+import ArtifactGallery from "../components/ArtifactGallery";
 import { Link } from "react-router-dom";
 import {
   ArrowLeft,
@@ -229,6 +230,27 @@ function PDFPreview({ title, description, src }) {
   );
 }
 
+const artifactGallery = [
+  {
+    title: "Talent Development Architecture",
+    description:
+      "A system-level view connecting onboarding, sales capability building, manager coaching, high performer contribution, and evaluation.",
+    src: "/images/portfolio/eurobridge-talent-architecture.png",
+  },
+  {
+    title: "Role-Based Learning Paths",
+    description:
+      "Learning architecture that separates new hire onboarding, existing employee growth, manager coaching, and SME contribution.",
+    src: "/images/portfolio/eurobridge-learning-paths.png",
+  },
+  {
+    title: "Manager Coaching Toolkit",
+    description:
+      "Manager-facing support tool designed to turn training into coaching conversations, follow-up, and performance reinforcement.",
+    src: "/images/portfolio/eurobridge-manager-coaching.png",
+  },
+];
+
 export default function EuroBridgeTrainingSystem() {
   return (
     <main className="min-h-screen bg-[#f7fbfa] text-slate-900">
@@ -301,6 +323,12 @@ export default function EuroBridgeTrainingSystem() {
           </aside>
         </div>
       </section>
+
+<ArtifactGallery
+  title="Key Artifacts from the Sales Training System"
+  description="These artifacts show the project as a broader talent development system, not just a single sales training course."
+  items={artifactGallery}
+/>
 
       <section className="mx-auto max-w-7xl px-6 py-18">
         <div className="mb-10 max-w-3xl">

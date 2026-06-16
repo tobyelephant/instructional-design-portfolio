@@ -1,3 +1,4 @@
+import ArtifactGallery from "../components/ArtifactGallery";
 import { Link } from "react-router-dom";
 import {
   ArrowLeft,
@@ -178,6 +179,27 @@ function PDFPreview({ title, description, src }) {
   );
 }
 
+const artifactGallery = [
+  {
+    title: "Workshop Slide Deck",
+    description:
+      "Opening visual for the Communication Challenge Lab, positioning the session as practical, interactive, and confidence-building.",
+    src: "/images/portfolio/communication-slide-cover.png",
+  },
+  {
+    title: "CLEAR Framework",
+    description:
+      "A simple communication structure interns can use for updates, questions, requests, and follow-ups with senior managers.",
+    src: "/images/portfolio/communication-clear-framework.png",
+  },
+  {
+    title: "Message Makeover Activity",
+    description:
+      "Scenario-based practice where interns rewrite unclear or overly casual messages into manager-ready communication.",
+    src: "/images/portfolio/communication-message-makeover.png",
+  },
+];
+
 export default function GenerationalCommunication() {
   return (
     <main className="min-h-screen bg-[#f7fbfa] text-slate-900">
@@ -250,6 +272,12 @@ export default function GenerationalCommunication() {
           </aside>
         </div>
       </section>
+
+<ArtifactGallery
+  title="Key Artifacts from the Communication Challenge Lab"
+  description="These visuals show how the session was designed as an active communication lab rather than a passive lecture, using frameworks, scenarios, rewriting, and practice."
+  items={artifactGallery}
+/>
 
       <section className="mx-auto max-w-7xl px-6 py-18">
         <div className="mb-10 max-w-3xl">

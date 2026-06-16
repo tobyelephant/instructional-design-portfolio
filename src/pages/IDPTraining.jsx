@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import ArtifactGallery from "../components/ArtifactGallery";
 import {
   ArrowLeft,
   Download,
@@ -10,6 +11,29 @@ import {
   MessageSquareText,
   LineChart,
 } from "lucide-react";
+
+const artifactGallery = [
+  {
+    title: "Leadership Playbook",
+    description:
+      "Leader-facing adoption guide showing how leaders sponsor IDP adoption, reinforce quality standards, and support follow-up.",
+    src: "/images/portfolio/idp-leadership-playbook.png",
+  },
+  {
+    title: "Manager & Employee Workshop Flow",
+    description:
+      "Application-based workshop structure moving learners from understanding IDPs to practice, documentation, and commitment.",
+    src: "/images/portfolio/idp-manager-workshop-flow.png",
+  },
+  {
+    title: "IDP Quality Checklist",
+    description:
+      "Practical worksheet used to help managers and employees improve vague development goals into specific, actionable IDPs.",
+    src: "/images/portfolio/idp-quality-checklist.png",
+  },
+];
+
+
 
 const programTracks = [
   {
@@ -221,6 +245,8 @@ function PDFPreview({ title, description, src }) {
   );
 }
 
+
+
 export default function IDPTraining() {
   return (
     <main className="min-h-screen bg-[#f7fbfa] text-slate-900">
@@ -293,6 +319,12 @@ export default function IDPTraining() {
           </aside>
         </div>
       </section>
+
+<ArtifactGallery
+  title="Key Artifacts from the IDP Adoption Program"
+  description="These artifacts show how the project moved beyond awareness training into a structured adoption system with leadership sponsorship, manager coaching, employee planning, and follow-up support."
+  items={artifactGallery}
+/>
 
       <section className="mx-auto max-w-7xl px-6 py-18">
         <div className="mb-10 max-w-3xl">
