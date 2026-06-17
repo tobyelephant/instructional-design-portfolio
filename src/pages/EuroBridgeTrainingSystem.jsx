@@ -1,3 +1,4 @@
+import LearningJourney from "../components/LearningJourney";
 import ArtifactGallery from "../components/ArtifactGallery";
 import { Link } from "react-router-dom";
 import {
@@ -251,6 +252,39 @@ const artifactGallery = [
   },
 ];
 
+const learningJourney = [
+  {
+    stage: "Business Challenge",
+    purpose: "Clarify the real performance problem",
+    activity:
+      "Identify why sales training was not trusted, where onboarding was inconsistent, and why high performers relied more on product leaders than formal training.",
+  },
+  {
+    stage: "Needs Analysis",
+    purpose: "Separate training gaps from system gaps",
+    activity:
+      "Analyze learner groups, stakeholder expectations, sales behaviors, coaching gaps, and barriers to adoption.",
+  },
+  {
+    stage: "Talent Architecture",
+    purpose: "Design a system, not a single course",
+    activity:
+      "Build a talent development structure connecting onboarding, existing employee growth, manager coaching, and high performer contribution.",
+  },
+  {
+    stage: "Role-Based Paths",
+    purpose: "Give each group a practical development path",
+    activity:
+      "Create separate paths for new hires, existing sales employees, managers, and high performers so each group knows what to learn and how to apply it.",
+  },
+  {
+    stage: "Evaluation",
+    purpose: "Connect learning to sales behavior and coaching follow-up",
+    activity:
+      "Define success measures around onboarding readiness, sales capability, manager coaching, SME contribution, and training trust.",
+  },
+];
+
 export default function EuroBridgeTrainingSystem() {
   return (
     <main className="min-h-screen bg-[#f7fbfa] text-slate-900">
@@ -330,6 +364,12 @@ export default function EuroBridgeTrainingSystem() {
   items={artifactGallery}
 />
 
+<LearningJourney
+  eyebrow="Learning System Flow"
+  title="From sales training problem to talent development system"
+  description="The project moves from diagnosing the business problem to designing a role-based learning and coaching architecture that supports onboarding, sales growth, manager reinforcement, and high performer knowledge capture."
+  items={learningJourney}
+/>
       <section className="mx-auto max-w-7xl px-6 py-18">
         <div className="mb-10 max-w-3xl">
           <p className="text-sm font-black uppercase tracking-[0.2em] text-teal-700">

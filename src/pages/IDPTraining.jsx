@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import LearningJourney from "../components/LearningJourney";
 import ArtifactGallery from "../components/ArtifactGallery";
 import {
   ArrowLeft,
@@ -324,6 +325,12 @@ export default function IDPTraining() {
   title="Key Artifacts from the IDP Adoption Program"
   description="These artifacts show how the project moved beyond awareness training into a structured adoption system with leadership sponsorship, manager coaching, employee planning, and follow-up support."
   items={artifactGallery}
+/>
+<LearningJourney
+  eyebrow="Learning Flow"
+  title="From IDP awareness to workplace follow-through"
+  description="The learning experience moves participants through a practical sequence: understand the purpose, analyze quality, practice conversations, apply the system, and commit to follow-up."
+  items={learningFlow}
 />
 
       <section className="mx-auto max-w-7xl px-6 py-18">

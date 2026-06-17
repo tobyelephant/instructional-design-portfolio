@@ -1,3 +1,4 @@
+import LearningJourney from "../components/LearningJourney";
 import ArtifactGallery from "../components/ArtifactGallery";
 import { Link } from "react-router-dom";
 import {
@@ -277,6 +278,13 @@ export default function GenerationalCommunication() {
   title="Key Artifacts from the Communication Challenge Lab"
   description="These visuals show how the session was designed as an active communication lab rather than a passive lecture, using frameworks, scenarios, rewriting, and practice."
   items={artifactGallery}
+/>
+
+<LearningJourney
+  eyebrow="Learning Flow"
+  title="From communication anxiety to manager-ready practice"
+  description="The workshop moves interns through a practical sequence: recognize communication challenges, understand the manager lens, apply the CLEAR framework, rewrite messages, practice asking better questions, and commit to a workplace action."
+  items={learningFlow}
 />
 
       <section className="mx-auto max-w-7xl px-6 py-18">
