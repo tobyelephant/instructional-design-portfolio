@@ -147,35 +147,42 @@ function Chip({ children }) {
     </span>
   );
 }
-
 function PDFPreview({ title, description, src }) {
   return (
-    <div className="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm">
-      <div className="mb-4 flex items-start gap-3">
-        <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-teal-100 text-teal-800">
-          <FileText size={21} />
-        </div>
+    <div className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-xl">
+      <div className="border-b border-slate-200 bg-slate-50 p-4">
+        <div className="flex items-start gap-3">
+          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-teal-100 text-teal-800">
+            <FileText size={20} />
+          </div>
 
-        <div>
-          <h3 className="text-xl font-black text-slate-950">{title}</h3>
-          <p className="mt-2 text-sm leading-6 text-slate-600">
-            {description}
-          </p>
+          <div>
+            <h3 className="text-lg font-black leading-snug text-slate-950">
+              {title}
+            </h3>
+          </div>
         </div>
       </div>
 
-      <div className="mt-5 h-[520px] overflow-hidden rounded-2xl border border-slate-200">
-        <iframe src={src} title={title} className="h-full w-full" />
+      <div className="h-[280px] overflow-hidden bg-slate-100">
+        <iframe
+          src={`${src}#toolbar=0&navpanes=0&scrollbar=0`}
+          title={title}
+          loading="lazy"
+          className="h-full w-full"
+        />
       </div>
 
-      <a
-        href={src}
-        target="_blank"
-        rel="noreferrer"
-        className="mt-5 inline-flex rounded-2xl bg-slate-950 px-5 py-3 text-sm font-bold text-white"
-      >
-        Open Full Preview
-      </a>
+      <div className="p-4">
+        <a
+          href={src}
+          target="_blank"
+          rel="noreferrer"
+          className="inline-flex w-full justify-center rounded-2xl bg-slate-950 px-5 py-3 text-sm font-bold text-white"
+        >
+          Open Full Preview
+        </a>
+      </div>
     </div>
   );
 }
@@ -258,7 +265,7 @@ export default function GenerationalCommunication() {
     ["Audience", "New graduate interns"],
     ["Format", "Interactive instructor-led workshop"],
     ["Core Focus", "Communicating up with clarity, confidence, and professionalism"],
-    ["My Role", "Instructional Designer / Learning Experience Designer"],
+    
   ].map(([label, value]) => (
     <div key={label} className="rounded-2xl bg-slate-50 p-4">
       <p className="text-xs font-bold uppercase tracking-[0.12em] text-slate-500">
@@ -274,51 +281,107 @@ export default function GenerationalCommunication() {
         </div>
       </section>
 
-<ArtifactGallery
-  title="Key Artifacts from the Communication Challenge Lab"
-  description="These visuals show how the session was designed as an active communication lab rather than a passive lecture, using frameworks, scenarios, rewriting, and practice."
-  items={artifactGallery}
-/>
+<section className="mx-auto max-w-7xl px-6 py-16">
+  <div className="mb-10 max-w-3xl">
+    <p className="text-sm font-black uppercase tracking-[0.2em] text-teal-700">
+      Context & Needs Analysis
+    </p>
+
+    <h2 className="mt-3 text-4xl font-black tracking-tight text-slate-950 md:text-5xl">
+      Why this became a communication practice lab, not a lecture
+    </h2>
+
+    <p className="mt-4 text-lg leading-8 text-slate-600">
+      The analysis showed that new graduate interns did not simply need
+      communication theory. They needed structured practice for real workplace
+      moments: asking clear questions, writing manager-ready updates,
+      responding to feedback, and speaking with more confidence.
+    </p>
+  </div>
+
+  <div className="grid gap-6 lg:grid-cols-[0.95fr_1.05fr]">
+    <div className="rounded-3xl border border-slate-200 bg-white p-7 shadow-sm">
+      <p className="text-sm font-black uppercase tracking-[0.18em] text-teal-700">
+        Design Challenge
+      </p>
+
+      <h3 className="mt-3 text-2xl font-black tracking-tight text-slate-950">
+        The training needed to build confidence through practice, not lecture.
+      </h3>
+
+      <p className="mt-4 text-base leading-7 text-slate-600">
+        New interns were technically capable, but many were still developing
+        confidence in leader-facing communication. The challenge was to help
+        them communicate clearly and professionally with senior managers without
+        making the session feel like a generic workplace communication talk.
+      </p>
+
+      <p className="mt-4 text-base leading-7 text-slate-600">
+        The solution reframed the session as a Communication Challenge Lab:
+        a scenario-based workshop where interns analyze, rewrite, role-play,
+        and commit to stronger communication behaviors.
+      </p>
+    </div>
+
+    <div className="rounded-3xl border border-slate-200 bg-white p-7 shadow-sm">
+      <p className="text-sm font-black uppercase tracking-[0.18em] text-teal-700">
+        Needs Analysis Findings
+      </p>
+
+      <h3 className="mt-3 text-2xl font-black tracking-tight text-slate-950">
+        What the analysis revealed
+      </h3>
+
+      <div className="mt-5 grid gap-4">
+        {[
+          "Interns needed help asking clear questions without sounding unprepared.",
+          "Messages to senior managers could become too vague, too casual, or too long.",
+          "Learners needed a simple structure for updates, requests, questions, and follow-ups.",
+          "The session needed realistic practice instead of long explanation.",
+          "Learners needed feedback on tone, clarity, and next-step language.",
+          "A 30-day commitment was needed to support transfer after onboarding.",
+        ].map((finding) => (
+          <div key={finding} className="flex items-start gap-3">
+            <div className="mt-1 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-teal-50 text-teal-700 ring-1 ring-teal-100">
+              <CheckCircle2 size={14} />
+            </div>
+
+            <p className="text-sm leading-6 text-slate-600">{finding}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
 
 <LearningJourney
-  eyebrow="Learning Flow"
+  eyebrow="Design Strategy"
   title="From communication anxiety to manager-ready practice"
   description="The workshop moves interns through a practical sequence: recognize communication challenges, understand the manager lens, apply the CLEAR framework, rewrite messages, practice asking better questions, and commit to a workplace action."
   items={learningFlow}
 />
 
-      <section className="mx-auto max-w-7xl px-6 py-18">
-        <div className="mb-10 max-w-3xl">
-          <p className="text-sm font-black uppercase tracking-[0.2em] text-teal-700">
-            Design Challenge
-          </p>
-
-          <h2 className="mt-3 text-4xl font-black tracking-tight text-slate-950">
-            The training needed to build confidence through practice, not lecture.
-          </h2>
-
-          <p className="mt-5 text-lg leading-8 text-slate-600">
-            New graduate interns often need support communicating with senior managers, especially when asking questions, clarifying expectations, reporting progress, and requesting feedback. The client also wanted the session to avoid the feel of a typical low-participation training.
-          </p>
-
-          <p className="mt-4 text-lg leading-8 text-slate-600">
-            NorthStar Rail needed an onboarding communication session for new graduate interns who were technically capable but still developing confidence in corporate, leader-facing communication. Common challenges included asking unclear questions, writing overly casual messages, hesitating to speak in meetings, and feeling unsure about how to respond to feedback.
-
-The design therefore reframed the session as a Communication Challenge Lab: a practical, scenario-based workshop where interns choose, rewrite, practice, and commit to stronger communication behaviors instead of passively listening to communication theory.
-          </p>
-        </div>
-      </section>
-
+<ArtifactGallery
+  eyebrow="Design Solution"
+  title="Key artifacts from the Communication Challenge Lab"
+  description="These visuals show how the session was designed as an active communication lab rather than a passive lecture, using frameworks, scenarios, rewriting, and practice."
+  items={artifactGallery}
+/>
       <section className="border-y border-slate-200 bg-white">
         <div className="mx-auto max-w-7xl px-6 py-18">
           <div className="mb-10 max-w-3xl">
             <p className="text-sm font-black uppercase tracking-[0.2em] text-teal-700">
-              Learner Context
-            </p>
+  Workshop Architecture
+</p>
 
-            <h2 className="mt-3 text-4xl font-black tracking-tight text-slate-950">
-              Designed around real intern communication moments
-            </h2>
+<h2 className="mt-3 text-4xl font-black tracking-tight text-slate-950">
+  A communication lab built around real intern moments
+</h2>
+
+<p className="mt-4 max-w-3xl text-lg leading-8 text-slate-600">
+  Each activity is tied to a realistic workplace communication moment so
+  interns can practice the behavior they are expected to use after onboarding.
+</p>
           </div>
 
           <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
@@ -345,66 +408,6 @@ The design therefore reframed the session as a Communication Challenge Lab: a pr
         </div>
       </section>
 
-      <section id="previews" className="mx-auto max-w-7xl px-6 py-18">
-        <div className="mb-10 max-w-3xl">
-          <p className="text-sm font-black uppercase tracking-[0.2em] text-teal-700">
-            Final Training Solution
-          </p>
-
-          <h2 className="mt-3 text-4xl font-black tracking-tight text-slate-950">
-            Preview the finished learning materials
-          </h2>
-
-          <p className="mt-4 text-lg leading-8 text-slate-600">
-            The previews show selected pages from the final training outputs. Full documents are available in the download section.
-          </p>
-        </div>
-
-        <div className="grid gap-8">
-          {previews.map((preview) => (
-            <PDFPreview key={preview.title} {...preview} />
-          ))}
-        </div>
-      </section>
-
-      <section className="border-y border-slate-200 bg-white">
-        <div className="mx-auto max-w-7xl px-6 py-18">
-          <div className="mb-10 max-w-3xl">
-            <p className="text-sm font-black uppercase tracking-[0.2em] text-teal-700">
-              Learning Experience Flow
-            </p>
-
-            <h2 className="mt-3 text-4xl font-black tracking-tight text-slate-950">
-              How the session moves from confidence gap to practice
-            </h2>
-          </div>
-
-          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-            {learningFlow.map((step, index) => (
-              <div
-                key={step.stage}
-                className="rounded-3xl border border-slate-200 bg-[#f7fbfa] p-6 shadow-sm"
-              >
-                <div className="mb-5 flex h-10 w-10 items-center justify-center rounded-2xl bg-teal-100 text-sm font-black text-teal-800">
-                  {index + 1}
-                </div>
-
-                <h3 className="text-xl font-black text-slate-950">
-                  {step.stage}
-                </h3>
-
-                <p className="mt-2 text-sm font-semibold text-slate-700">
-                  {step.purpose}
-                </p>
-
-                <p className="mt-4 text-sm leading-6 text-slate-600">
-                  {step.activity}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       <section className="mx-auto max-w-7xl px-6 py-18">
         <div className="mb-10 max-w-3xl">
@@ -443,44 +446,30 @@ The design therefore reframed the session as a Communication Challenge Lab: a pr
         </div>
       </section>
 
-      <section className="border-y border-slate-200 bg-white">
-        <div className="mx-auto max-w-7xl px-6 py-18">
-          <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
-            <div>
-              <p className="text-sm font-black uppercase tracking-[0.2em] text-teal-700">
-                Evaluation & Reflection
-              </p>
+     
 
-              <h2 className="mt-3 text-4xl font-black tracking-tight text-slate-950">
-                How success would be measured
-              </h2>
+<section id="previews" className="mx-auto max-w-7xl px-6 py-18">
+        <div className="mb-10 max-w-3xl">
+          <p className="text-sm font-black uppercase tracking-[0.2em] text-teal-700">
+            Final Training Solution
+          </p>
 
-              <p className="mt-5 text-lg leading-8 text-slate-600">
-                The training is designed to be measured through participation, confidence, scenario performance, and workplace application after onboarding.
-              </p>
-            </div>
+          <h2 className="mt-3 text-4xl font-black tracking-tight text-slate-950">
+            Preview the finished learning materials
+          </h2>
 
-            <div className="grid gap-4 sm:grid-cols-2">
-              {[
-  ["Reaction", "Post-session survey on relevance, confidence, usefulness, and psychological safety."],
-  ["Learning", "Scenario-based message rewrite, CLEAR update practice, role-play quality, and best-response activity."],
-  ["Behavior", "Manager observation after 30–60 days and use of CLEAR in real intern communication."],
-  ["Results", "Faster onboarding, fewer communication misunderstandings, stronger intern engagement, and clearer manager-intern relationships."],
-].map(([level, text]) => (
-                <div
-                  key={level}
-                  className="rounded-3xl border border-slate-200 bg-[#f7fbfa] p-6 shadow-sm"
-                >
-                  <p className="text-sm font-black text-teal-700">{level}</p>
-                  <p className="mt-3 text-sm leading-6 text-slate-600">
-                    {text}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
+          <p className="mt-4 text-lg leading-8 text-slate-600">
+            The previews show selected pages from the final training outputs. Full documents are available in the download section.
+          </p>
         </div>
+
+        <div className="grid gap-6 lg:grid-cols-3">
+  {previews.map((preview) => (
+    <PDFPreview key={preview.title} {...preview} />
+  ))}
+</div>
       </section>
+
 
       <section id="downloads" className="bg-slate-950 text-white">
         <div className="mx-auto max-w-7xl px-6 py-18">

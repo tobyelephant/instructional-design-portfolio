@@ -201,32 +201,40 @@ function Chip({ children }) {
 
 function PDFPreview({ title, description, src }) {
   return (
-    <div className="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm">
-      <div className="mb-4 flex items-start gap-3">
-        <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-teal-100 text-teal-800">
-          <FileText size={21} />
-        </div>
+    <div className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-xl">
+      <div className="border-b border-slate-200 bg-slate-50 p-4">
+        <div className="flex items-start gap-3">
+          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-teal-100 text-teal-800">
+            <FileText size={20} />
+          </div>
 
-        <div>
-          <h3 className="text-xl font-black text-slate-950">{title}</h3>
-          <p className="mt-2 text-sm leading-6 text-slate-600">
-            {description}
-          </p>
+          <div>
+            <h3 className="text-lg font-black leading-snug text-slate-950">
+              {title}
+            </h3>
+          </div>
         </div>
       </div>
 
-      <div className="mt-5 h-[520px] overflow-hidden rounded-2xl border border-slate-200">
-        <iframe src={src} title={title} className="h-full w-full" />
+      <div className="h-[280px] overflow-hidden bg-slate-100">
+        <iframe
+          src={`${src}#toolbar=0&navpanes=0&scrollbar=0`}
+          title={title}
+          loading="lazy"
+          className="h-full w-full"
+        />
       </div>
 
-      <a
-        href={src}
-        target="_blank"
-        rel="noreferrer"
-        className="mt-5 inline-flex rounded-2xl bg-slate-950 px-5 py-3 text-sm font-bold text-white"
-      >
-        Open Full Preview
-      </a>
+      <div className="p-4">
+        <a
+          href={src}
+          target="_blank"
+          rel="noreferrer"
+          className="inline-flex w-full justify-center rounded-2xl bg-slate-950 px-5 py-3 text-sm font-bold text-white"
+        >
+          Open Full Preview
+        </a>
+      </div>
     </div>
   );
 }
@@ -342,7 +350,6 @@ export default function EuroBridgeTrainingSystem() {
                 ["Audience", "New Hires, Existing Sales Employees, Managers"],
                 ["Industry Context", "Financial sales / European market products"],
                 ["Core Challenge", "Training trust, leader dependence, inconsistent development"],
-                ["My Role", "Instructional Designer / Learning System Designer"],
               ].map(([label, value]) => (
                 <div key={label} className="rounded-2xl bg-slate-50 p-4">
                   <p className="text-xs font-bold uppercase tracking-[0.12em] text-slate-500">
@@ -357,85 +364,107 @@ export default function EuroBridgeTrainingSystem() {
           </aside>
         </div>
       </section>
+<section className="mx-auto max-w-7xl px-6 py-16">
+  <div className="mb-10 max-w-3xl">
+    <p className="text-sm font-black uppercase tracking-[0.2em] text-teal-700">
+      Context & Needs Analysis
+    </p>
+
+    <h2 className="mt-3 text-4xl font-black tracking-tight text-slate-950 md:text-5xl">
+      Why this became a talent development system, not a single course
+    </h2>
+
+    <p className="mt-4 text-lg leading-8 text-slate-600">
+      The analysis showed that EuroBridge needed more than content delivery.
+      The real need was to build trust, standardize sales capability, support
+      managers, and turn individual expertise into reusable company knowledge.
+    </p>
+  </div>
+
+  <div className="grid gap-6 lg:grid-cols-[0.95fr_1.05fr]">
+    <div className="rounded-3xl border border-slate-200 bg-white p-7 shadow-sm">
+      <p className="text-sm font-black uppercase tracking-[0.18em] text-teal-700">
+        Design Challenge
+      </p>
+
+      <h3 className="mt-3 text-2xl font-black tracking-tight text-slate-950">
+        EuroBridge did not only need another sales course.
+      </h3>
+
+      <p className="mt-4 text-base leading-7 text-slate-600">
+        It needed a trusted sales capability system for a financial sales
+        environment where product expertise, client communication, compliance,
+        and revenue performance were tightly connected.
+      </p>
+
+      <p className="mt-4 text-base leading-7 text-slate-600">
+        The design challenge was to reduce dependence on individual
+        product-line leaders by creating company-level standards, role-based
+        learning paths, manager coaching routines, and reusable knowledge
+        assets.
+      </p>
+    </div>
+
+    <div className="rounded-3xl border border-slate-200 bg-white p-7 shadow-sm">
+      <p className="text-sm font-black uppercase tracking-[0.18em] text-teal-700">
+        Needs Analysis Findings
+      </p>
+
+      <h3 className="mt-3 text-2xl font-black tracking-tight text-slate-950">
+        What the analysis revealed
+      </h3>
+
+      <div className="mt-5 grid gap-4">
+        {[
+          "Training needed to prove clear value for sales performance.",
+          "New hire onboarding needed clearer standards and a consistent ramp-up path.",
+          "Existing sales employees needed practical support for product knowledge, client conversations, and sales execution.",
+          "Managers needed coaching tools and routines to reinforce learning after training.",
+          "High performers were more influenced by product-line leaders than by formal training.",
+          "Sales expertise needed to become reusable company knowledge instead of staying in individual experience.",
+        ].map((finding) => (
+          <div key={finding} className="flex items-start gap-3">
+            <div className="mt-1 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-teal-50 text-teal-700 ring-1 ring-teal-100">
+              <CheckCircle2 size={14} />
+            </div>
+
+            <p className="text-sm leading-6 text-slate-600">{finding}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<LearningJourney
+  eyebrow="Design Strategy"
+  title="From sales training problem to talent development system"
+  description="The project moves from diagnosing the performance problem to designing a role-based learning and coaching architecture that supports onboarding, sales growth, manager reinforcement, and high performer knowledge capture."
+  items={learningJourney}
+/>
 
 <ArtifactGallery
-  title="Key Artifacts from the Sales Training System"
-  description="These artifacts show the project as a broader talent development system, not just a single sales training course."
+  eyebrow="Design Solution"
+  title="Key artifacts from the sales training system"
+  description="These artifacts show how the project became a broader talent development system, not just a single sales training course."
   items={artifactGallery}
 />
 
-<LearningJourney
-  eyebrow="Learning System Flow"
-  title="From sales training problem to talent development system"
-  description="The project moves from diagnosing the business problem to designing a role-based learning and coaching architecture that supports onboarding, sales growth, manager reinforcement, and high performer knowledge capture."
-  items={learningJourney}
-/>
       <section className="mx-auto max-w-7xl px-6 py-18">
         <div className="mb-10 max-w-3xl">
-          <p className="text-sm font-black uppercase tracking-[0.2em] text-teal-700">
-            Business Context
-          </p>
+         <p className="text-sm font-black uppercase tracking-[0.2em] text-teal-700">
+  Solution Architecture
+</p>
 
-          <h2 className="mt-3 text-4xl font-black tracking-tight text-slate-950">
-            The issue was not simply a course gap. It was a talent development and trust problem.
-          </h2>
+<h2 className="mt-3 text-4xl font-black tracking-tight text-slate-950">
+  A five-layer system for turning individual expertise into company capability
+</h2>
 
-          <p className="mt-5 text-lg leading-8 text-slate-600">
-            EuroBridge needed a structured learning system for a financial sales organization where performance, product expertise, client communication, and compliance all mattered. Because income was strongly connected to sales outcomes, training had to prove practical value rather than feel like extra corporate messaging.
-          </p>
-
-          <p className="mt-4 text-lg leading-8 text-slate-600">
-            The deeper challenge was reducing overdependence on individual product-line leaders by building company-level standards, role-based learning paths, manager coaching routines, and reusable knowledge assets.
-          </p>
-        </div>
-      </section>
-
-      <section className="border-y border-slate-200 bg-white">
-        <div className="mx-auto max-w-7xl px-6 py-18">
-          <div className="mb-10 max-w-3xl">
-            <p className="text-sm font-black uppercase tracking-[0.2em] text-teal-700">
-              Performance Diagnosis
-            </p>
-
-            <h2 className="mt-3 text-4xl font-black tracking-tight text-slate-950">
-              What the needs analysis revealed
-            </h2>
-
-            <p className="mt-4 text-lg leading-8 text-slate-600">
-              The recommended solution had to separate training problems from business system problems, then design learning interventions that could realistically support behavior change.
-            </p>
-          </div>
-
-          <div className="grid gap-4 lg:grid-cols-5">
-            {diagnosis.map((item, index) => (
-              <div
-                key={item.issue}
-                className="rounded-3xl border border-slate-200 bg-[#f7fbfa] p-6 shadow-sm"
-              >
-                <div className="mb-5 flex h-10 w-10 items-center justify-center rounded-2xl bg-teal-100 text-sm font-black text-teal-800">
-                  {index + 1}
-                </div>
-                <h3 className="text-lg font-black text-slate-950">
-                  {item.issue}
-                </h3>
-                <p className="mt-3 text-sm leading-6 text-slate-600">
-                  {item.implication}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="mx-auto max-w-7xl px-6 py-18">
-        <div className="mb-10 max-w-3xl">
-          <p className="text-sm font-black uppercase tracking-[0.2em] text-teal-700">
-            Talent Development Architecture
-          </p>
-
-          <h2 className="mt-3 text-4xl font-black tracking-tight text-slate-950">
-            A five-layer system for turning individual expertise into company capability
-          </h2>
+<p className="mt-4 max-w-3xl text-lg leading-8 text-slate-600">
+  The solution connects onboarding, sales capability building, manager
+  reinforcement, high performer contribution, and evaluation logic into one
+  role-based talent development system.
+</p>
         </div>
 
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-5">
@@ -457,13 +486,18 @@ export default function EuroBridgeTrainingSystem() {
       <section className="border-y border-slate-200 bg-white">
         <div className="mx-auto max-w-7xl px-6 py-18">
           <div className="mb-10 max-w-3xl">
-            <p className="text-sm font-black uppercase tracking-[0.2em] text-teal-700">
-              Three Learning Paths
-            </p>
+           <p className="text-sm font-black uppercase tracking-[0.2em] text-teal-700">
+  Role-Based Learning Paths
+</p>
 
-            <h2 className="mt-3 text-4xl font-black tracking-tight text-slate-950">
-              Role-based learning paths for different development needs
-            </h2>
+<h2 className="mt-3 text-4xl font-black tracking-tight text-slate-950">
+  Learning paths for core sales development needs
+</h2>
+
+<p className="mt-4 max-w-3xl text-lg leading-8 text-slate-600">
+  Each path gives a different learner group a practical route from knowledge
+  acquisition to workplace application.
+</p>
           </div>
 
           <div className="grid gap-6 lg:grid-cols-3">
@@ -499,17 +533,19 @@ export default function EuroBridgeTrainingSystem() {
       <section className="mx-auto max-w-7xl px-6 py-18">
         <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
           <div>
-            <p className="text-sm font-black uppercase tracking-[0.2em] text-teal-700">
-              High Performer Adoption Strategy
-            </p>
+           <p className="text-sm font-black uppercase tracking-[0.2em] text-teal-700">
+  High Performer Contribution Strategy
+</p>
 
-            <h2 className="mt-3 text-4xl font-black tracking-tight text-slate-950">
-              Reframing training as performance, recognition, influence, and career capital
-            </h2>
+<h2 className="mt-3 text-4xl font-black tracking-tight text-slate-950">
+  Turning high performers into system contributors
+</h2>
 
-            <p className="mt-5 text-lg leading-8 text-slate-600">
-              High-performing sales employees were unlikely to be convinced by culture messaging alone. The design therefore positioned them not as passive learners, but as contributors to company capability and future leadership potential.
-            </p>
+<p className="mt-5 text-lg leading-8 text-slate-600">
+  High-performing sales employees were unlikely to be convinced by culture
+  messaging alone. The design positioned them as contributors to company
+  capability, not passive training participants.
+</p>
           </div>
 
           <div className="grid gap-3">
@@ -535,7 +571,9 @@ export default function EuroBridgeTrainingSystem() {
         </div>
       </section>
 
-      <section id="previews" className="border-y border-slate-200 bg-white">
+ 
+
+<section id="previews" className="border-y border-slate-200 bg-white">
         <div className="mx-auto max-w-7xl px-6 py-18">
           <div className="mb-10 max-w-3xl">
             <p className="text-sm font-black uppercase tracking-[0.2em] text-teal-700">
@@ -551,46 +589,11 @@ export default function EuroBridgeTrainingSystem() {
             </p>
           </div>
 
-          <div className="grid gap-8">
-            {previews.map((preview) => (
-              <PDFPreview key={preview.title} {...preview} />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="mx-auto max-w-7xl px-6 py-18">
-        <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
-          <div>
-            <p className="text-sm font-black uppercase tracking-[0.2em] text-teal-700">
-              Evaluation Framework
-            </p>
-
-            <h2 className="mt-3 text-4xl font-black tracking-tight text-slate-950">
-              Measuring more than completion
-            </h2>
-
-            <p className="mt-5 text-lg leading-8 text-slate-600">
-              The evaluation approach connects training to practical business indicators, including new hire ramp-up, product knowledge consistency, sales communication quality, manager coaching behavior, cultural trust, and knowledge asset creation.
-            </p>
-          </div>
-
-          <div className="grid gap-4 sm:grid-cols-2">
-            {[
-              ["Reaction", "Usefulness, relevance, participation, and learner confidence."],
-              ["Learning", "Knowledge checks, scenario judgment, role-play quality, and tool completion."],
-              ["Behavior", "Manager observation, sales talk-track use, coaching records, and review quality."],
-              ["Results", "New hire ramp-up, first effective client conversation, conversion quality, retention, and team stability."],
-            ].map(([level, text]) => (
-              <div
-                key={level}
-                className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm"
-              >
-                <p className="text-sm font-black text-teal-700">{level}</p>
-                <p className="mt-3 text-sm leading-6 text-slate-600">{text}</p>
-              </div>
-            ))}
-          </div>
+       		<div className="grid gap-6 lg:grid-cols-2">
+  		{previews.map((preview) => (
+    		<PDFPreview key={preview.title} {...preview} />
+  		))}
+		</div>
         </div>
       </section>
 
@@ -639,6 +642,7 @@ export default function EuroBridgeTrainingSystem() {
           </div>
         </div>
       </section>
+
 
       <footer className="bg-white">
         <div className="mx-auto flex max-w-7xl flex-col gap-4 px-6 py-8 md:flex-row md:items-center md:justify-between">

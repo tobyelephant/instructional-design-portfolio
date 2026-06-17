@@ -217,35 +217,43 @@ function Chip({ children }) {
 
 function PDFPreview({ title, description, src }) {
   return (
-    <div className="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm">
-      <div className="mb-4 flex items-start gap-3">
-        <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-teal-100 text-teal-800">
-          <FileText size={21} />
-        </div>
-        <div>
-          <h3 className="text-xl font-black text-slate-950">{title}</h3>
-          <p className="mt-2 text-sm leading-6 text-slate-600">
-            {description}
-          </p>
+    <div className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-xl">
+      <div className="border-b border-slate-200 bg-slate-50 p-4">
+        <div className="flex items-start gap-3">
+          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-teal-100 text-teal-800">
+            <FileText size={20} />
+          </div>
+
+          <div>
+            <h3 className="text-lg font-black leading-snug text-slate-950">
+              {title}
+            </h3>
+          </div>
         </div>
       </div>
 
-      <div className="mt-5 h-[520px] overflow-hidden rounded-2xl border border-slate-200">
-        <iframe src={src} title={title} className="h-full w-full" />
+      <div className="h-[280px] overflow-hidden bg-slate-100">
+        <iframe
+          src={`${src}#toolbar=0&navpanes=0&scrollbar=0`}
+          title={title}
+          loading="lazy"
+          className="h-full w-full"
+        />
       </div>
 
-      <a
-        href={src}
-        target="_blank"
-        rel="noreferrer"
-        className="mt-5 inline-flex rounded-2xl bg-slate-950 px-5 py-3 text-sm font-bold text-white"
-      >
-        Open Full Preview
-      </a>
+      <div className="p-4">
+        <a
+          href={src}
+          target="_blank"
+          rel="noreferrer"
+          className="inline-flex w-full justify-center rounded-2xl bg-slate-950 px-5 py-3 text-sm font-bold text-white"
+        >
+          Open Full Preview
+        </a>
+      </div>
     </div>
   );
 }
-
 
 
 export default function IDPTraining() {
@@ -303,9 +311,8 @@ export default function IDPTraining() {
  	["Case Company", "RailCore Transit Solutions"],
   	["Audience", "Senior leaders, managers, employees, HR/L&D partners"],
   	["Program Structure", "Leader Track + Manager & Employee Track"],
- 	["Delivery", "Leadership playbook + 2-hour application-based workshop"],
   	["Core Focus", "IDP quality, development conversations, documentation, follow-up"],
-  	["My Role", "Instructional Designer / Learning Experience Designer"],
+  	
 		].map(([label, value]) => (
                 <div key={label} className="rounded-2xl bg-slate-50 p-4">
                   <p className="text-xs font-bold uppercase tracking-[0.12em] text-slate-500">
@@ -321,47 +328,111 @@ export default function IDPTraining() {
         </div>
       </section>
 
-<ArtifactGallery
-  title="Key Artifacts from the IDP Adoption Program"
-  description="These artifacts show how the project moved beyond awareness training into a structured adoption system with leadership sponsorship, manager coaching, employee planning, and follow-up support."
-  items={artifactGallery}
-/>
+<section className="mx-auto max-w-7xl px-6 py-16">
+  <div className="mb-10 max-w-3xl">
+    <p className="text-sm font-black uppercase tracking-[0.2em] text-teal-700">
+      Context & Needs Analysis
+    </p>
+
+    <h2 className="mt-3 text-4xl font-black tracking-tight text-slate-950 md:text-5xl">
+      Why this became an IDP adoption program, not just system training
+    </h2>
+
+    <p className="mt-4 text-lg leading-8 text-slate-600">
+      The analysis showed that RailCore did not only need employees to complete
+      IDP forms. The real need was to build shared ownership, improve IDP
+      quality, support manager conversations, and create a follow-up rhythm that
+      made development planning useful after training.
+    </p>
+  </div>
+
+  <div className="grid gap-6 lg:grid-cols-[0.95fr_1.05fr]">
+    <div className="rounded-3xl border border-slate-200 bg-white p-7 shadow-sm">
+      <p className="text-sm font-black uppercase tracking-[0.18em] text-teal-700">
+        Design Challenge
+      </p>
+
+      <h3 className="mt-3 text-2xl font-black tracking-tight text-slate-950">
+        The program needed to make IDPs useful, not just completed.
+      </h3>
+
+      <p className="mt-4 text-base leading-7 text-slate-600">
+        IDPs can easily become a compliance task if leaders only track
+        completion. RailCore needed a learning solution that helped people
+        understand the purpose of IDPs, improve the quality of goals, and turn
+        development planning into practical conversations.
+      </p>
+
+      <p className="mt-4 text-base leading-7 text-slate-600">
+        The solution therefore had to support both organizational adoption and
+        learner application: leaders needed to sponsor the system, while
+        managers and employees needed tools to create, discuss, document, and
+        follow up on meaningful development plans.
+      </p>
+    </div>
+
+    <div className="rounded-3xl border border-slate-200 bg-white p-7 shadow-sm">
+      <p className="text-sm font-black uppercase tracking-[0.18em] text-teal-700">
+        Needs Analysis Findings
+      </p>
+
+      <h3 className="mt-3 text-2xl font-black tracking-tight text-slate-950">
+        What the analysis revealed
+      </h3>
+
+      <div className="mt-5 grid gap-4">
+        {[
+          "Leaders needed a consistent message for why IDPs matter and how they support talent development.",
+          "Managers needed a practical coaching structure for meaningful development conversations.",
+          "Employees needed examples of specific, actionable IDP goals instead of vague development intentions.",
+          "The program needed to focus on IDP quality, not only completion rate.",
+          "System documentation had to be connected to real planning and follow-up, not treated as an administrative step.",
+          "HR/L&D needed a shared standard for follow-up, adoption data, manager participation, and development themes.",
+        ].map((finding) => (
+          <div key={finding} className="flex items-start gap-3">
+            <div className="mt-1 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-teal-50 text-teal-700 ring-1 ring-teal-100">
+              <CheckCircle2 size={14} />
+            </div>
+
+            <p className="text-sm leading-6 text-slate-600">{finding}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
 <LearningJourney
-  eyebrow="Learning Flow"
-  title="From IDP awareness to workplace follow-through"
-  description="The learning experience moves participants through a practical sequence: understand the purpose, analyze quality, practice conversations, apply the system, and commit to follow-up."
+  eyebrow="Design Strategy"
+  title="From IDP completion to meaningful development practice"
+  description="The learning experience moves participants through a practical sequence: understand the purpose, analyze IDP quality, practice development conversations, apply the system, and commit to follow-up."
   items={learningFlow}
 />
 
-      <section className="mx-auto max-w-7xl px-6 py-18">
-        <div className="mb-10 max-w-3xl">
-          <p className="text-sm font-black uppercase tracking-[0.2em] text-teal-700">
-            Design Challenge
-          </p>
-          <h2 className="mt-3 text-4xl font-black tracking-tight text-slate-950">
-            The program needed to make IDPs useful, not just completed.
-          </h2>
-          <p className="mt-5 text-lg leading-8 text-slate-600">
-            RailCore needed IDPs to become more than a completion task. Leaders needed a consistent way to sponsor and reinforce adoption across regions, while managers and employees needed practical tools to create higher-quality goals, hold useful development conversations, document plans correctly, and maintain follow-up.
-          </p>
-<p className="mt-5 text-lg leading-8 text-slate-600">
-            The design therefore uses a dual-track adoption structure: the Leader Track sets expectations, quality standards, barrier responses, and follow-up accountability, while the Manager & Employee Track translates those standards into practical conversation, planning, system documentation, and follow-up behaviors.
-          </p>
-        </div>
-      </section>
+<ArtifactGallery
+  eyebrow="Design Solution"
+  title="Key artifacts from the IDP adoption program"
+  description="These artifacts show how the project moved beyond awareness training into a structured adoption system with leadership sponsorship, manager coaching, employee planning, and follow-up support."
+  items={artifactGallery}
+/>
 
       <section className="border-y border-slate-200 bg-white">
         <div className="mx-auto max-w-7xl px-6 py-18">
           <div className="mb-10 max-w-3xl">
-            <p className="text-sm font-black uppercase tracking-[0.2em] text-teal-700">
-              Dual-Track Architecture
-            </p>
-            <h2 className="mt-3 text-4xl font-black tracking-tight text-slate-950">
-              One program, two connected learning tracks
-            </h2>
-            <p className="mt-4 text-lg leading-8 text-slate-600">
-              The IDP project is presented as one larger talent development program, with separate leader and manager tracks designed for different responsibilities in the same development system.
-            </p>
+           <p className="text-sm font-black uppercase tracking-[0.2em] text-teal-700">
+  Dual-Track Program Architecture
+</p>
+
+<h2 className="mt-3 text-4xl font-black tracking-tight text-slate-950">
+  Two connected tracks for role-specific adoption
+</h2>
+
+<p className="mt-4 text-lg leading-8 text-slate-600">
+  The program separates strategic adoption from workplace application. The
+  Leader Track creates sponsorship, standards, and reinforcement, while the
+  Manager & Employee Track turns those standards into practical planning,
+  conversation, documentation, and follow-up behaviors.
+</p>
           </div>
 
           <div className="grid gap-6 lg:grid-cols-2">
@@ -416,67 +487,6 @@ export default function IDPTraining() {
         </div>
       </section>
 
-	<section className="mx-auto max-w-7xl px-6 py-18">
-  <div className="mb-10 max-w-3xl">
-    <p className="text-sm font-black uppercase tracking-[0.2em] text-teal-700">
-      Learning Journey
-    </p>
-
-    <h2 className="mt-3 text-4xl font-black tracking-tight text-slate-950">
-      From understanding the IDP purpose to committing to follow-up
-    </h2>
-
-    <p className="mt-4 text-lg leading-8 text-slate-600">
-      The Manager & Employee Track follows an application-based learning flow:
-      Understand, Analyze, Practice, Apply, and Commit.
-    </p>
-  </div>
-
-  <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-5">
-    {learningFlow.map((step, index) => (
-      <div
-        key={step.stage}
-        className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm"
-      >
-        <div className="mb-5 flex h-10 w-10 items-center justify-center rounded-2xl bg-teal-100 text-sm font-black text-teal-800">
-          {index + 1}
-        </div>
-
-        <h3 className="text-xl font-black text-slate-950">
-          {step.stage}
-        </h3>
-
-        <p className="mt-2 text-sm font-semibold text-slate-700">
-          {step.purpose}
-        </p>
-
-        <p className="mt-4 text-sm leading-6 text-slate-600">
-          {step.activity}
-        </p>
-      </div>
-    ))}
-  </div>
-</section>
-
-      <section id="previews" className="mx-auto max-w-7xl px-6 py-18">
-        <div className="mb-10 max-w-3xl">
-          <p className="text-sm font-black uppercase tracking-[0.2em] text-teal-700">
-            Final Training Solution
-          </p>
-          <h2 className="mt-3 text-4xl font-black tracking-tight text-slate-950">
-            Preview the finished learning materials
-          </h2>
-          <p className="mt-4 text-lg leading-8 text-slate-600">
-            The previews show selected pages from the final training outputs. Full documents are available in the download section.
-          </p>
-        </div>
-
-        <div className="grid gap-8">
-          {previews.map((preview) => (
-            <PDFPreview key={preview.title} {...preview} />
-          ))}
-        </div>
-      </section>
 
       <section className="border-y border-slate-200 bg-white">
         <div className="mx-auto max-w-7xl px-6 py-18">
@@ -516,60 +526,28 @@ export default function IDPTraining() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-6 py-18">
-  <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
-    <div>
-      <p className="text-sm font-black uppercase tracking-[0.2em] text-teal-700">
-        Evaluation & Transfer Plan
-      </p>
 
-      <h2 className="mt-3 text-4xl font-black tracking-tight text-slate-950">
-        Measuring IDP adoption by quality, usefulness, and follow-up
-      </h2>
-
-      <p className="mt-5 text-lg leading-8 text-slate-600">
-        The program is designed to measure more than whether an IDP was completed.
-        Leaders review completion, goal quality, follow-up, manager participation,
-        development themes, and employee usefulness to understand whether IDPs are
-        becoming a meaningful development practice.
-      </p>
-    </div>
-
-    <div className="grid gap-4 sm:grid-cols-2">
-      {[
-        ["Completion", "Percentage of employees with an IDP documented."],
-        [
-          "Quality",
-          "Percentage of IDPs with specific goals, actions, timelines, and support.",
-        ],
-        [
-          "Follow-up",
-          "Percentage of IDPs with scheduled or completed check-ins.",
-        ],
-        [
-          "Manager Participation",
-          "Managers completing conversations and updates on time.",
-        ],
-        [
-          "Development Themes",
-          "Common skills, gaps, or career interests across teams.",
-        ],
-        [
-          "Employee Usefulness",
-          "Pulse feedback on whether IDPs helped clarify growth direction.",
-        ],
-      ].map(([level, text]) => (
-        <div
-          key={level}
-          className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm"
-        >
-          <p className="text-sm font-black text-teal-700">{level}</p>
-          <p className="mt-3 text-sm leading-6 text-slate-600">{text}</p>
+      <section id="previews" className="mx-auto max-w-7xl px-6 py-18">
+        <div className="mb-10 max-w-3xl">
+          <p className="text-sm font-black uppercase tracking-[0.2em] text-teal-700">
+            Final Training Solution
+          </p>
+          <h2 className="mt-3 text-4xl font-black tracking-tight text-slate-950">
+            Preview the finished learning materials
+          </h2>
+          <p className="mt-4 text-lg leading-8 text-slate-600">
+            The previews show selected pages from the final training outputs. Full documents are available in the download section.
+          </p>
         </div>
-      ))}
-    </div>
-  </div>
-</section>
+
+       <div className="grid gap-6 lg:grid-cols-3">
+  {previews.map((preview) => (
+    <PDFPreview key={preview.title} {...preview} />
+  ))}
+</div>
+      </section>
+
+      
 
       <section id="downloads" className="bg-slate-950 text-white">
         <div className="mx-auto max-w-7xl px-6 py-18">

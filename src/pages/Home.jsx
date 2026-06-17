@@ -162,15 +162,18 @@ export default function Home() {
           </div>
 
           <div className="hidden items-center gap-6 text-sm font-medium text-slate-600 md:flex">
-            <a href="#projects" className="hover:text-slate-950">
-              Projects
-            </a>
-            <a href="#approach" className="hover:text-slate-950">
-              Approach
-            </a>
-            <a href="#contact" className="hover:text-slate-950">
-              Contact
-            </a>
+           <a href="#projects" className="hover:text-slate-950">
+  Projects
+</a>
+<a href="#evaluation" className="hover:text-slate-950">
+  Evaluation
+</a>
+<a href="#approach" className="hover:text-slate-950">
+  Approach
+</a>
+<a href="#contact" className="hover:text-slate-950">
+  Contact
+</a>
           </div>
         </nav>
 
@@ -269,50 +272,174 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="approach" className="border-y border-slate-200 bg-white">
-        <div className="mx-auto grid max-w-7xl gap-12 px-6 py-20 lg:grid-cols-[0.9fr_1.1fr]">
-          <div>
-            <p className="text-sm font-black uppercase tracking-[0.2em] text-teal-700">
-              My Approach
-            </p>
+<section id="evaluation" className="border-y border-slate-200 bg-white">
+  <div className="mx-auto max-w-7xl px-6 py-20">
+    <div className="mb-10 max-w-3xl">
+      <p className="text-sm font-black uppercase tracking-[0.2em] text-teal-700">
+        Evaluation Framework
+      </p>
 
-            <h2 className="mt-3 text-4xl font-black tracking-tight text-slate-950">
-              Learning design with a business lens.
-            </h2>
+      <h2 className="mt-3 text-4xl font-black tracking-tight text-slate-950 md:text-5xl">
+        How I connect learning design to performance outcomes
+      </h2>
 
-            <p className="mt-5 text-lg leading-8 text-slate-600">
-              I design training by first clarifying the performance problem,
-              then building practical learning experiences that help employees
-              apply new behaviors in real work situations.
-            </p>
-          </div>
+      <p className="mt-4 text-lg leading-8 text-slate-600">
+        Across these projects, I use Kirkpatrick&apos;s four levels as a practical
+        evaluation lens: learner response, skill development, workplace behavior,
+        and business or organizational results.
+      </p>
+    </div>
 
-          <div className="grid gap-4 sm:grid-cols-2">
-            {skills.map((skill) => {
-              const Icon = skill.icon;
-
-              return (
-                <div
-                  key={skill.title}
-                  className="rounded-3xl border border-slate-200 bg-[#f7fbfa] p-6 shadow-sm"
-                >
-                  <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-teal-100 text-teal-800">
-                    <Icon size={22} />
-                  </div>
-
-                  <h3 className="text-lg font-black text-slate-950">
-                    {skill.title}
-                  </h3>
-
-                  <p className="mt-2 text-sm leading-6 text-slate-600">
-                    {skill.text}
-                  </p>
-                </div>
-              );
-            })}
-          </div>
+    <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+      {[
+        {
+          level: "Level 1",
+          title: "Reaction",
+          text:
+            "Measure whether learners found the training relevant, useful, clear, and psychologically safe to participate in.",
+        },
+        {
+          level: "Level 2",
+          title: "Learning",
+          text:
+            "Check whether learners can apply the framework, complete the practice task, make better decisions, or demonstrate the target skill.",
+        },
+        {
+          level: "Level 3",
+          title: "Behavior",
+          text:
+            "Look for transfer after training through manager observation, follow-up conversations, tool usage, and workplace application.",
+        },
+        {
+          level: "Level 4",
+          title: "Results",
+          text:
+            "Connect learning to business indicators such as onboarding readiness, communication quality, adoption, sales enablement, or performance consistency.",
+        },
+      ].map((item) => (
+        <div
+          key={item.level}
+          className="rounded-3xl border border-slate-200 bg-[#f7fbfa] p-6 shadow-sm"
+        >
+          <p className="text-sm font-black text-teal-700">{item.level}</p>
+          <h3 className="mt-2 text-xl font-black text-slate-950">
+            {item.title}
+          </h3>
+          <p className="mt-3 text-sm leading-6 text-slate-600">
+            {item.text}
+          </p>
         </div>
-      </section>
+      ))}
+    </div>
+  </div>
+</section>
+
+      <section id="approach" className="border-b border-slate-200 bg-white">
+  <div className="mx-auto max-w-7xl px-6 py-20">
+    <div className="mb-10 max-w-3xl">
+      <p className="text-sm font-black uppercase tracking-[0.2em] text-teal-700">
+        My Design Process
+      </p>
+
+      <h2 className="mt-3 text-4xl font-black tracking-tight text-slate-950 md:text-5xl">
+        How I move from performance problems to practical learning systems
+      </h2>
+
+      <p className="mt-4 text-lg leading-8 text-slate-600">
+        My work starts with the business and performance problem, then moves
+        into learner needs, design strategy, practice-based learning, usable
+        artifacts, and evaluation planning.
+      </p>
+    </div>
+
+    <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-5">
+      {[
+        {
+          step: "01",
+          title: "Diagnose",
+          text:
+            "Clarify the business problem, performance gap, audience, constraints, and why training is needed.",
+        },
+        {
+          step: "02",
+          title: "Analyze",
+          text:
+            "Identify learner needs, stakeholder expectations, role differences, barriers, and workplace context.",
+        },
+        {
+          step: "03",
+          title: "Design",
+          text:
+            "Create a learning strategy with clear objectives, role-based flow, practice activities, and transfer support.",
+        },
+        {
+          step: "04",
+          title: "Develop",
+          text:
+            "Build practical artifacts such as slide decks, trainer guides, worksheets, playbooks, and job aids.",
+        },
+        {
+          step: "05",
+          title: "Evaluate",
+          text:
+            "Plan how to measure reaction, learning, behavior transfer, and business or organizational outcomes.",
+        },
+      ].map((item) => (
+        <div
+          key={item.step}
+          className="rounded-3xl border border-slate-200 bg-[#f7fbfa] p-6 shadow-sm"
+        >
+          <div className="mb-5 flex h-11 w-11 items-center justify-center rounded-2xl bg-teal-100 text-sm font-black text-teal-800">
+            {item.step}
+          </div>
+
+          <h3 className="text-xl font-black text-slate-950">
+            {item.title}
+          </h3>
+
+          <p className="mt-3 text-sm leading-6 text-slate-600">
+            {item.text}
+          </p>
+        </div>
+      ))}
+    </div>
+
+    <div className="mt-10 rounded-[2rem] bg-slate-950 p-8 text-white shadow-2xl md:p-10">
+      <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+        <div>
+          <p className="text-sm font-black uppercase tracking-[0.2em] text-teal-300">
+            Portfolio Positioning
+          </p>
+
+          <h3 className="mt-3 text-3xl font-black tracking-tight">
+            From training materials to learning systems.
+          </h3>
+
+          <p className="mt-4 text-base leading-7 text-slate-300">
+            These projects show how I design beyond content delivery: I connect
+            analysis, learning flow, practice, manager support, artifacts, and
+            evaluation into solutions that support workplace performance.
+          </p>
+        </div>
+
+        <div className="grid gap-3 text-sm sm:grid-cols-2">
+          {[
+            "Performance gap analysis",
+            "Needs analysis",
+            "Role-based learning journeys",
+            "Scenario-based practice",
+            "Manager reinforcement tools",
+            "Evaluation planning",
+          ].map((item) => (
+            <div key={item} className="rounded-2xl bg-white/10 px-4 py-3">
+              {item}
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
       <section className="mx-auto max-w-7xl px-6 py-20">
         <div className="rounded-[2rem] bg-slate-950 p-8 text-white shadow-2xl md:p-12">
@@ -360,7 +487,7 @@ export default function Home() {
 
           <div className="flex flex-wrap gap-3 text-sm font-medium text-slate-600">
             <a
-              href="tobyzjx@gmail.com"
+              href="mailto:tobyzjx@gmail.com"
               className="rounded-full border border-slate-200 px-4 py-2 hover:bg-slate-50"
             >
               Email

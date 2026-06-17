@@ -1,21 +1,24 @@
 import { ExternalLink } from "lucide-react";
 
 export default function ArtifactGallery({
+  eyebrow = "Design Solution",
   title = "Artifact Gallery",
   description,
   items = [],
 }) {
   return (
-    <section className="mx-auto mt-12 max-w-6xl px-6">
-      <div className="mb-6">
-        <p className="text-sm font-bold uppercase tracking-[0.18em] text-slate-500">
-          Visual Evidence
+    <section className="mx-auto max-w-7xl px-6 py-16">
+      <div className="mb-10 max-w-3xl">
+        <p className="text-sm font-black uppercase tracking-[0.2em] text-teal-700">
+          {eyebrow}
         </p>
-        <h2 className="mt-2 text-3xl font-bold tracking-tight text-slate-950">
+
+        <h2 className="mt-3 text-4xl font-black tracking-tight text-slate-950 md:text-5xl">
           {title}
         </h2>
+
         {description && (
-          <p className="mt-3 max-w-3xl text-base leading-7 text-slate-600">
+          <p className="mt-4 text-lg leading-8 text-slate-600">
             {description}
           </p>
         )}
@@ -30,7 +33,7 @@ export default function ArtifactGallery({
             rel="noreferrer"
             className="group overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-xl"
           >
-            <div className="aspect-[16/10] overflow-hidden bg-slate-100">
+            <div className="aspect-[16/10] overflow-hidden bg-slate-100 p-3">
               <img
                 src={item.src}
                 alt={item.title}
@@ -45,6 +48,7 @@ export default function ArtifactGallery({
                 </h3>
                 <ExternalLink className="mt-1 h-4 w-4 shrink-0 text-slate-400" />
               </div>
+
               <p className="mt-2 text-sm leading-6 text-slate-600">
                 {item.description}
               </p>
