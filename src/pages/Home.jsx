@@ -18,6 +18,7 @@ const projects = [
     "A dual-track IDP adoption program designed to help leaders sponsor the system, managers coach meaningful development conversations, and employees create practical development plans with clear actions and follow-up.",
   status: "Live Case Study",
   link: "/projects/idp-training",
+image: "/images/portfolio/idp-leadership-playbook.png",
   active: true,
   },
     {
@@ -28,6 +29,7 @@ const projects = [
     "A 90-minute onboarding workshop designed to help interns communicate clearly, professionally, and confidently with senior managers through realistic communication challenges, the CLEAR framework, message rewriting, role-play, and a 30-day action plan.",
   status: "Live Case Study",
   link: "/projects/generational-communication",
+image: "/images/portfolio/communication-slide-cover.png",
   active: true,
 },
   {
@@ -38,6 +40,7 @@ const projects = [
     "A financial sales learning system designed to standardize onboarding, build sales capability, enable manager coaching, capture high performer expertise, and strengthen trust in the company growth platform.",
   status: "Live Case Study",
   link: "/projects/eurobridge-training-system",
+image: "/images/portfolio/eurobridge-talent-architecture.png",
   active: true,
 },
 ];
@@ -67,7 +70,21 @@ const skills = [
 
 function ProjectCard({ project }) {
   return (
-    <article className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-xl">
+   <article className="group rounded-3xl border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-xl">
+{project.image && (
+  <Link
+    to={project.link}
+    className="mb-5 block overflow-hidden rounded-2xl bg-slate-100 p-3"
+  >
+    <div className="aspect-[16/10]">
+      <img
+        src={project.image}
+        alt={project.title}
+        className="h-full w-full object-contain transition duration-500 group-hover:scale-105"
+      />
+    </div>
+  </Link>
+)}
       <div className="mb-5 flex items-start justify-between gap-4">
         <div>
           <p className="mb-2 text-sm font-semibold text-teal-700">
