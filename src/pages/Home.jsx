@@ -441,40 +441,7 @@ export default function Home() {
   </div>
 </section>
 
-      <section className="mx-auto max-w-7xl px-6 py-20">
-        <div className="rounded-[2rem] bg-slate-950 p-8 text-white shadow-2xl md:p-12">
-          <div className="grid gap-8 lg:grid-cols-[1fr_0.8fr] lg:items-center">
-            <div>
-              <p className="text-sm font-black uppercase tracking-[0.2em] text-teal-300">
-                Portfolio Positioning
-              </p>
-
-              <h2 className="mt-3 text-4xl font-black tracking-tight">
-                From training materials to learning systems.
-              </h2>
-
-              <p className="mt-5 text-lg leading-8 text-slate-300">
-                My work focuses on making learning practical, structured, and
-                connected to how people actually perform at work.
-              </p>
-            </div>
-
-            <div className="grid gap-3 text-sm">
-              {[
-                "Performance gap analysis",
-                "Role-based learning journeys",
-                "Manager reinforcement tools",
-                "Scenario-based practice",
-                "Evaluation and improvement planning",
-              ].map((item) => (
-                <div key={item} className="rounded-2xl bg-white/10 px-4 py-3">
-                  {item}
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
+      
 
       <footer id="contact" className="border-t border-slate-200 bg-white">
         <div className="mx-auto flex max-w-7xl flex-col gap-4 px-6 py-10 md:flex-row md:items-center md:justify-between">
