@@ -460,12 +460,14 @@ export default function Home() {
               Email
             </a>
 
-            <a
-              href="#"
-              className="rounded-full border border-slate-200 px-4 py-2 hover:bg-slate-50"
-            >
-              LinkedIn
-            </a>
+           <a
+  		href="https://pomodorotoby.netlify.app/"
+  		target="_blank"
+  		rel="noreferrer"
+  		className="rounded-full border border-slate-200 px-4 py-2 hover:bg-slate-50"
+			>
+  		Focus Timer
+		</a>
 
             <a
               href="#"
